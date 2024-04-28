@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getMovies } from "../redux/datas/movieSlice";
 import Header from "../components/Header";
+import Slider from "../components/Slider";
 import Footer from "../components/Footer";
 import MovieCard from "../components/MovieCard";
 import { getImdb } from "../redux/datas/imdbSlice";
@@ -30,10 +31,11 @@ const Home = () => {
   const currentMovies = imdb.slice(indexOfFirstMovie, indexOfLastMovie);
 
   return (
-    <div className="w-full h-full ">
+    <div className="w-full h-full">
       <Header />
-      <div className="flex justify-evenly content-center w-full h-full">
-        <div className="flex justify-evenly content-center flex-wrap">
+      <Slider imdb={currentMovies}/>
+      <div className="flex justify-evenly content-center w-full h-full ">
+        <div className="flex justify-evenly content-center flex-wrap mt-20">
           <MovieCard imdb={currentMovies} />
         </div>
       </div>

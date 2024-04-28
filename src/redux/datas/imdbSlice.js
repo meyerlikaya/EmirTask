@@ -42,6 +42,41 @@ export const fetchMovies = () => async (dispatch, getState) => {
   }
 };
 
+export const getMoviesByName = createAsyncThunk(
+  "movies/getMoviesByName",
+  async (name) => {
+    try {
+      const response = await fetch(
+        "https://api.collectapi.com/watching/moviesImdb",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "apikey 6UdRoL7rf85pUcid9WXcKa:3Ztx8t6BdQNbyBwMuoBHpU",
+          },
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Veriler alınamadı.");
+      }
+      const data = await response.json();
+
+      for (let index = 0; index < data.result.length; index++) {
+        const element = data.result[index];
+
+        if (element.name === name) {
+          return element;
+        }
+      }
+
+      return null;
+    } catch (error) {
+      throw new Error("Veriler alınamadı.");
+    }
+  }
+);
+
 const imdbSlice = createSlice({
   name: "movie",
   initialState,
@@ -56,6 +91,17 @@ const imdbSlice = createSlice({
         state.movies = action.payload;
       })
       .addCase(getImdb.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+      .addCase(getMoviesByName.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(getMoviesByName.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.movies = [action.payload];
+      })
+      .addCase(getMoviesByName.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
       });
