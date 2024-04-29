@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getMovies } from "../redux/datas/movieSlice";
 import Header from "../components/Header";
 import Slider from "../components/Slider";
 import Footer from "../components/Footer";

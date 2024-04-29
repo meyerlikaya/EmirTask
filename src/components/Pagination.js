@@ -43,8 +43,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
         <div>
           <p className="text-sm text-gray-700">
-            Showing <span className="font-medium">{(currentPage - 1) * 16 + 1}</span> to <span className="font-medium">{Math.min(currentPage * 16, totalPages * 16)}</span> of{' '}
-            <span className="font-medium">{totalPages * 16}</span> results
+           <span className="font-medium">{(currentPage - 1) * 16 + 1}</span>. sonuçtan <span className="font-medium">{Math.min(currentPage * 16, totalPages * 16)}</span> ile{' '}
+            <span className="font-medium">{totalPages * 16}</span> arası gösteriliyor.
           </p>
         </div>
         <div>
@@ -63,7 +63,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
                 href="#"
                 className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold ${
                   currentPage === number
-                    ? 'bg-indigo-600 text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                    ? 'bg-slate-600 text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
                     : 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0'
                 }`}
                 onClick={() => onPageChange(number)}

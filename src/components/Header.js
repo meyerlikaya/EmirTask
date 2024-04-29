@@ -124,15 +124,14 @@ export default function Header() {
               </Popover.Panel>
             </Transition>
           </Popover>
-
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Features
+          <a href="/" className="text-sm font-semibold leading-6 text-gray-900">
+            Anasayfa
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Marketplace
+          <a href="/about" className="text-sm font-semibold leading-6 text-gray-900">
+            MoviesComing
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Company
+          <a href="https://www.imdb.com/" className="text-sm font-semibold leading-6 text-gray-900">
+            IMDb
           </a>
         </Popover.Group>
       </nav>
