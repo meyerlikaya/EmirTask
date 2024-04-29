@@ -1,4 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
+
 const MovieCard = ({ imdb }) => {
+  const navigate = useNavigate();
+
+  const redirectToDetail = (name) => {
+    navigate(`/detail/${name}`);
+  };
+
   return (
     <>
       {imdb.map((movieData, index) => (
@@ -10,13 +19,21 @@ const MovieCard = ({ imdb }) => {
           <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2">{movieData.name}</div>
             <div className="flex justify-center rounded-md bg-amber-300 w-20">
-              <p className="text-gray-700 font-bold text-base">IMBd  {movieData.rate}</p>
+              <p className="text-gray-700 font-bold text-base">
+                IMBd {movieData.rate}
+              </p>
             </div>
           </div>
           <div className="px-6 pt-4 pb-2">
             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
               {movieData.year}
             </span>
+            <button
+              onClick={() => redirectToDetail(movieData.name)}
+              className="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+            >
+              Detay
+            </button>
           </div>
         </div>
       ))}

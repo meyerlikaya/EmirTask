@@ -14,7 +14,7 @@ export const getMovies = createAsyncThunk("movies/getMovies", async () => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "apikey 2fh92EBLwGCbtfOBOdEEHB:1KeVb53Zm4PFrlG1OHGthL",
+          Authorization: "apikey 2ZnEUxbfTK3ec5j3MwZEZs:4c4AZSSDLmW613kckC5e3l",
         },
       }
     );

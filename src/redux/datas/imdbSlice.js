@@ -53,7 +53,7 @@ export const getMoviesByName = createAsyncThunk(
           headers: {
             "Content-Type": "application/json",
             Authorization:
-              "apikey 6UdRoL7rf85pUcid9WXcKa:3Ztx8t6BdQNbyBwMuoBHpU",
+              "apikey 2ZnEUxbfTK3ec5j3MwZEZs:4c4AZSSDLmW613kckC5e3l",
           },
         }
       );

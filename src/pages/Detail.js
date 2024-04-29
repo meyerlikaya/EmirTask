@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { getMoviesByName } from "../redux/datas/imdbSlice";
 import Jumbatron from "../components/Jumbatron";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function Detail() {
   const dispatch = useDispatch();
@@ -40,7 +42,13 @@ function Detail() {
     return <div>Yükleniyor...</div>;
   }
 
-  return <Jumbatron movie={movie} />;
+  return (
+    <div>
+      <Header />
+      <Jumbatron movie={movie} />
+      <Footer/>
+    </div>
+  );
 }
 
 export default Detail;
